@@ -1,0 +1,55 @@
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li class="active">{{ name }}</li>
+</ol>
+
+<h2>{{ count + ' ' + name }}</h2>
+
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Height</th>
+        <th>Mass</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="data in people | orderBy: 'url'">
+            <td>
+                {{ data.url.substr(28).replace('/', ')') }}
+            </td>
+            <td>
+                {{ data.name }}
+            </td>
+            <td>
+                {{ data.height }} cm
+            </td>
+            <td ng-if="data.mass === 'unknown'">
+                {{ data.mass }}
+            </td>
+            <td ng-if="data.mass !== 'unknown'">
+                {{ data.mass }} kg
+            </td>
+            <td>
+                <a class="btn btn-default" ng-href="#person/{{ data.url.substr(28) }}">Details</button>
+            </td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="5">
+                <ul class="pagination">
+                    <li ng-repeat="link in pagination" ng-class="(page * 1) === link ? 'active' : ''">
+                        <a ng-href="#people/{{ link }}">
+                            {{ link }}
+                        </a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,56 @@
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#planets/1">Planets</a></li>
+  <li class="active">{{ planet.name }}</li>
+</ol>
+
+<h2>{{ planet.name }}</h2>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Details
+      </div>
+
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Rotation period:</strong> {{ planet.rotation_period }}</li>
+        <li class="list-group-item"><strong>Orbital period:</strong> {{ planet.orbital_period }}</li>
+        <li class="list-group-item"><strong>Diameter:</strong> {{ planet.diameter }}</li>
+        <li class="list-group-item"><strong>Climate:</strong> {{ planet.climate }}</li>
+        <li class="list-group-item"><strong>Gravity:</strong> {{ planet.gravity }}</li>
+        <li class="list-group-item"><strong>Terrain:</strong> {{ planet.terrain }}</li>
+        <li class="list-group-item"><strong>Surface water:</strong> {{ planet.surface_water }}</li>
+        <li class="list-group-item"><strong>Population:</strong> {{ planet.population }}</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="col-md-4" ng-if="residents.length > 0">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Residents
+      </div>
+
+      <div class="list-group">
+        <a ng-repeat="data in residents | orderBy: 'url'" href="#" ng-href="#person/{{ data.url }}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ data.name }}</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Films
+      </div>
+
+      <div class="list-group">
+        <a ng-repeat="data in films | orderBy: 'url'" href="#" ng-href="#film/{{ data.url }}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ data.name }}</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

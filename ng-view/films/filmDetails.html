@@ -1,0 +1,68 @@
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#films">Films</a></li>
+  <li class="active">{{ name }}</li>
+</ol>
+
+<h2>{{ film.title }}</h2>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+      Details
+  </div>
+
+  <div class="panel-body">
+      {{ film.opening_crawl }}
+  </div>
+
+  <ul class="list-group">
+    <li class="list-group-item"><strong>Episode id:</strong> {{ film.episode_id }}</li>
+    <li class="list-group-item"><strong>Director:</strong> {{ film.director }}</li>
+    <li class="list-group-item"><strong>Producer:</strong> {{ film.producer }}</li>
+    <li class="list-group-item"><strong>Release date:</strong> {{ film.release_date }}</li>
+  </ul>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+      <div class="panel panel-default">
+    <div class="panel-heading">
+        Characters
+    </div>
+
+    <div class="list-group">
+        <a ng-repeat="data in characters | orderBy: 'name'" href="#" ng-href="#person/{{ data.url }}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ data.name }}</h4>
+        </a>
+    </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+      <div class="panel panel-default">
+    <div class="panel-heading">
+        Species
+    </div>
+
+    <div class="list-group">
+        <a ng-repeat="data in species | orderBy: 'name'" href="#" ng-href="#specie/{{ data.url }}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ data.name }}</h4>
+        </a>
+    </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+      <div class="panel panel-default">
+    <div class="panel-heading">
+        Planets
+    </div>
+
+    <div class="list-group">
+        <a ng-repeat="data in planets | orderBy: 'name'" href="#" ng-href="#planet/{{ data.url }}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ data.name }}</h4>
+        </a>
+    </div>
+    </div>
+  </div>
+</div>

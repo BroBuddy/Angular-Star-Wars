@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myApp">
+    <head>
+        <title>SWAPI - The Star Wars API</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="ng-app/app.css">
+    </head>
+    <body>
+
+        <header>
+			<nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Star Wars</a>
+                    </div>
+
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#films">Films</a></li>
+                            <li><a href="#people/1">People</a></li>
+                            <li><a href="#planets/1">Planets</a></li>
+                            <li><a href="#species/1">Species</a></li>
+                            <li><a href="#starships/1">Starships</a></li>
+                            <li><a href="#vehicles/1">Vehicles</a></li>
+                        </ul>
+                    </div>
+			    </div>
+			</nav>
+		</header>
+
+        <div class="container">
+
+            <div ng-view></div>
+            
+		</div>
+    
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/bootstrap.min.js"></script>
+        <script src="vendor/angular/angular.min.js"></script>
+        <script src="vendor/angular/angular-route.min.js"></script>
+        <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+        <script src="ng-app/app.js"></script>
+        <script src="ng-view/films/films.js"></script>
+        <script src="ng-view/films/filmDetails.js"></script>
+        <script src="ng-view/people/people.js"></script>
+        <script src="ng-view/people/personDetails.js"></script>
+        <script src="ng-view/planets/planets.js"></script>
+        <script src="ng-view/planets/planetDetails.js"></script>
+
+    </body>
+</html>

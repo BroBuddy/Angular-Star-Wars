@@ -1,0 +1,58 @@
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li class="active">{{ name }}</li>
+</ol>
+
+<h2>{{ count + ' ' + name }}</h2>
+
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Diameter</th>
+        <th>Population</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="data in planets | orderBy: 'url'">
+            <td>
+                {{ data.url.substr(29).replace('/', ')') }}
+            </td>
+            <td>
+                {{ data.name }}
+            </td>
+            <td ng-if="data.diameter === 'unknown'">
+                {{ data.diameter }}
+            </td>
+            <td ng-if="data.diameter !== 'unknown'">
+                {{ data.diameter | number }}
+            </td>
+            <td ng-if="data.population === 'unknown'">
+                {{ data.population }}
+            </td>
+            <td ng-if="data.population !== 'unknown'">
+                {{ data.population | number }}
+            </td>
+            <td>
+                <a class="btn btn-default" ng-href="#planet/{{ data.url.substr(29) }}">Details</button>
+            </td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="5">
+                <ul class="pagination">
+                    <li ng-repeat="link in pagination" ng-class="(page * 1) === link ? 'active' : ''">
+                        <a ng-href="#planets/{{ link }}">
+                            {{ link }}
+                        </a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,55 @@
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#people/1">People</a></li>
+  <li class="active">{{ person.name }}</li>
+</ol>
+
+<h2>{{ person.name }}</h2>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Details
+      </div>
+
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Gender:</strong> {{ person.gender }}</li>
+        <li class="list-group-item"><strong>Height:</strong> {{ person.height }} cm</li>
+        <li class="list-group-item"><strong>Mass:</strong> {{ person.mass }} kg</li>
+        <li class="list-group-item"><strong>Hair color:</strong> {{ person.hair_color }}</li>
+        <li class="list-group-item"><strong>Skin color:</strong> {{ person.skin_color }}</li>
+        <li class="list-group-item"><strong>Eye color:</strong> {{ person.eye_color }}</li>
+        <li class="list-group-item"><strong>Birth year:</strong> {{ person.birth_year }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md-4" ng-if="species.length > 0">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Specie
+      </div>
+
+      <div class="list-group">
+        <a ng-repeat="data in species | orderBy: 'url'" href="#" ng-href="#specie/{{ data.url }}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ data.name }}</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Films
+      </div>
+
+      <div class="list-group">
+        <a ng-repeat="data in films | orderBy: 'url'" href="#" ng-href="#film/{{ data.url }}" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ data.name }}</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

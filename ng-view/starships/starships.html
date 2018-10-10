@@ -1,0 +1,58 @@
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li class="active">{{ name }}</li>
+</ol>
+
+<h2>{{ count + ' ' + name }}</h2>
+
+ <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Length</th>
+        <th>Cost in credits</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="data in starships | orderBy: 'url'">
+            <td>
+                {{ data.url.substr(31).replace('/', ')') }}
+            </td>
+            <td>
+                {{ data.name }}
+            </td>
+            <td ng-if="data.length === 'unknown'">
+                {{ data.length }}
+            </td>
+            <td ng-if="data.length !== 'unknown'">
+                {{ data.length }} m
+            </td>
+            <td ng-if="data.cost_in_credits === 'unknown'">
+                {{ data.cost_in_credits }}
+            </td>
+            <td ng-if="data.cost_in_credits !== 'unknown'">
+                {{ data.cost_in_credits | number }} $
+            </td>
+            <td>
+                <a class="btn btn-default" ng-href="#starship/{{ data.url.substr(31) }}">Details</button>
+            </td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="5">
+                <ul class="pagination">
+                    <li ng-repeat="link in pagination" ng-class="(page * 1) === link ? 'active' : ''">
+                        <a ng-href="#starships/{{ link }}">
+                            {{ link }}
+                        </a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tfoot>
+</table>
